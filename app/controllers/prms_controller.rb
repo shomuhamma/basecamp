@@ -10,7 +10,6 @@ class PrmsController < ApplicationController
   def show
     @prmer = @prm.prmers.new
     @prmers = @prm.prmers
-    @prmer = 0 
   end
 
   # GET /prms/new
