@@ -1,0 +1,52 @@
+<html>
+    <head>
+      <style>
+      html {
+              height: 100%;
+            }
+      body {
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: linear-gradient(#141e30, #243b55);
+              }
+     #projects{
+  width: 400px;
+  margin-top:100px;
+  background: white;
+  border-radius: 10px;
+  padding:5px 10px; 
+   box-shadow: 10px 10px 5px lightblue;
+          border-radius: 10px;
+ }          
+     </style>
+    </head>
+      <body>
+     
+    
+          <div class="container">
+
+           <div id="projects" class="">
+                   <p style="color: green"><%= notice %></p>
+
+              <h1>Prms</h1>
+
+              <div id="prms">
+                <% @prms.each do |prm| %>
+                  <%= render prm %>
+                  <p>
+                    <%= link_to "Show", prm, class: "btn btn-success" %>
+                  </p>
+                <% end %>
+              </div>
+
+             <%= link_to "New", new_project_prm_path(@project), class: "btn btn-primary" %><br>
+              <%= link_to "Back", project_path(@project) %>
+          </div>
+           
+        </div>
+        <br>          
+     
+    </body>  
+</html>
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+             background: linear-gradient(#141e30, #243b55);
+            overflow:hidden;
+        }
+        ul {
+           padding: 0;
+           list-style-type: none;  
+           margin-right: 100px;
+        }
+        ul li {
+            box-sizing: border-box;
+            width: 15em;
+            height: 3em;
+            font-size: 20px;
+            border-radius: 0.5em;
+            margin: 0.5em;
+            box-shadow: 0 0 1em rgbaO(0,0,0,0.2);
+            color: white;
+            font-family: sans-serif;
+            text-transform: capitalize;
+            line-height: 3em;
+            transition: 0.3s;
+            cursor: pointer;
+        } 
+        ul li:nth-child(odd) {
+            background: linear-gradient(to right, orange, tomato);
+            text-align: left;
+            padding-left: 10%;
+            transform: perspective(500px)
+            rotateY(45deg);
+        }
+        ul li:nth-child(even) {
+            background: linear-gradient(to left, orange, tomato);
+            text-align: right;
+            padding-right: 10%;
+            transform: perspective(500px)
+            rotateY(-45deg);
+        }
+        ul li:nth-child(odd):hover {
+            transform: perspective(200px)
+            rotateY(45deg);
+            padding-left: 5%;
+        }
+        ul li:nth-child(even):hover {
+            transform: perspective(200px)
+            rotateY(-45deg);
+            padding-right: 5%;
+        }
+        .container{
+          width:400px;
+          box-shadow: 10px 10px 5px lightblue;
+          border-radius: 10px;
+          
+        }
+        .container{
+            background: white;
+            padding: 5px 10px;
+            box-shadow: 10px 10px 5px lightblue;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+     <%= render @project %>
+     <%= button_to "Destroy this project", @project, method: :delete, class: "btn btn-primary my" %>
+    </div>
+  
+    </div>
+  </div>
+</div>
+     
+
+               <ul>
+                <li> <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-none" %></li>
+                <li><%= link_to "Back to projects", projects_path, class: "btn btn-none" %></li>
+                <li><%= link_to "Message Boards", project_prms_path(@project), class: "btn btn-none" %></li>
+                <li><%= link_to "Attachment", project_patches_path(@project), class: "btn btn-none" %></li>
+                <li><%= link_to "Todos", project_prtds_path(@project), class: "btn btn-none" %></li>
+              </ul>
+
+
+
+
+
+       
+  
+
+</body>
+</html>

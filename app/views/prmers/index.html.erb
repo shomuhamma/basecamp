@@ -1,0 +1,46 @@
+<html>
+    <head>
+      <style>
+      html {
+              height: 100%;
+            }
+      body {
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: linear-gradient(#141e30, #243b55);
+              }
+     #projects{
+  width: 400px;
+  margin-top:100px;
+  background: white;
+  border-radius: 10px;
+  padding:5px 10px; 
+   box-shadow: 10px 10px 5px lightblue;
+          border-radius: 10px;
+ }          
+     </style>
+    </head>
+      <body>
+     
+    
+          <div class="container">
+
+           <div id="projects" class="">
+<p style="color: green"><%= notice %></p>
+
+<h1>Prmers</h1>
+
+<div id="prmers">
+  <% @prmers.each do |prmer| %>
+    <%= render prmer %>
+    <p>
+      <%= link_to "Show this prmer", prmer, class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New ", new_prmer_path %>
+
+   </body>  
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+  <style>
+      h1{
+      margin-top:50px;
+    }
+    body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+             background: linear-gradient(#141e30, #243b55);
+            overflow:hidden;
+        }
+       
+        .container{
+          width:500px;
+          box-shadow: 10px 10px 5px lightblue;
+          border-radius: 10px;
+            background: white;
+            padding: 5px 10px;
+        }      
+  </style>
+  </head>
+      <body>
+          <div class="container">
+            <div class="row justify-content-md-center"> 
+              <div class="col-md-auto"> 
+                <div class="projects">
+        <h1>Editing patch</h1>
+
+        <%= render "form", patch: @patch %>
+
+        <br>
+
+        <div>
+          <%= link_to "Back", project_patches_path(@patch.project), class: "btn btn-warning" %>
+        </div>
+ </div>
+</html>  
+
+

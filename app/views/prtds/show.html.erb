@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @prtd %>
+
+<div>
+  <%= link_to "Edit this prtd", edit_prtd_path(@prtd) %> |
+  <%= link_to "Back to prtds", prtds_path %>
+
+  <%= button_to "Destroy this prtd", @prtd, method: :delete %>
+</div>

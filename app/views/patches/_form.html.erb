@@ -1,0 +1,36 @@
+<%= form_with(model: patch) do |form| %>
+  <% if patch.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(patch.errors.count, "error") %> prohibited this patch from being saved:</h2>
+
+      <ul>
+        <% patch.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+  <div>
+    <%= form.file_field :pat, class:"my-2" %>
+  </div>
+
+  <div>
+    <%= form.text_field :project_id, type: :hidden, class: "btn btn-success" %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-success" %>
+  </div>
+<% end %>
+
+<style>
+
+ .form-control{
+  width: 400px;
+ }
+</style>

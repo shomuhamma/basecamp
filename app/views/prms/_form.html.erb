@@ -1,0 +1,41 @@
+<style>
+.form-control {
+  width: 400px;
+}
+</style>
+<div class="login-box">
+        <%= form_with(model: prm) do |form| %>
+          <% if prm.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(prm.errors.count, "error") %> prohibited this prm from being saved:</h2>
+
+              <ul>
+                <% prm.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div>
+            <%= form.label :name, style: "display: block" %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :body, style: "display: block" %>
+            <%= form.text_area :body, class: "form-control" %>
+          </div>
+
+          <div>
+          
+          <%- if action_name == 'new' %>
+            <%= form.text_field :project_id, value: @project.id, type: :hidden %>
+          <% end %>
+          </div>
+
+          <div>
+            <%= form.submit class: "btn btn-primary my-4" %>
+          </div>
+        <% end %>
+ </div>

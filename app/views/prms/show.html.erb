@@ -1,0 +1,55 @@
+<html>
+<head>
+  <style>
+      h1{
+      margin-top:50px;
+    }
+    body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+             background: linear-gradient(#141e30, #243b55);
+            overflow:hidden;
+        }
+       
+        .container{
+          width:500px;
+          box-shadow: 10px 10px 5px lightblue;
+          border-radius: 10px;
+            background: white;
+            padding: 5px 10px;
+        }      
+  </style>
+  </head>
+      <body>
+          <div class="container">
+            <div class="row justify-content-md-center"> 
+           
+                <div class="projects">
+      <%= render @prm %>
+
+      <div>
+        <%= link_to "Edit", edit_prm_path(@prm), class: "btn btn-primary my-2" %> |
+        <%= link_to "Back", project_prms_path(@prm.project), class: "btn btn-warning my-2" %>
+
+        <%= button_to "Destroy this prm", @prm, method: :delete, class: "btn btn-danger" %>
+      </div>
+
+
+
+      <%= render "prmers/form", prmer: @prmer %>
+
+
+      <% @prmers.each do |prmer| %>
+        <p><%= prmer.name %></p>
+        <p>
+        
+        <% if prmer.id %>
+          <%= link_to  "Show", prmer, class: "btn btn-success" %>
+        <%= button_to "Destroy this prm", prmer, method: :delete, class: "btn btn-danger" %>
+        <% end %>
+        
+        </p>
+      <% end %>
+  </div>
+</html>          

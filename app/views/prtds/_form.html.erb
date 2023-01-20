@@ -1,0 +1,7 @@
+<%= form_with(model: prtd) do |form| %>
+    <%= form.text_area :description %>
+
+    <%= form.text_field :project_id %>
+
+    <%= form.submit, class: "btn btn-danger" %>
+<% end %>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-md-center"> 
+    <div class="col-md-auto">
+        <h1>Todo</h1>
+        
+
+        <%= form_with(model: @prtd) do |form| %>
+            <%= form.text_area :description, class: "form-control" %>
+
+            <%= form.text_field :project_id, type: :hidden %>
+
+            <%= form.submit class: "btn btn-primary my-2" %>
+            
+        <% end %>
+<%= link_to "Back", project_path(@project)%>
+
+        <div id="prtds">
+          <% @prtds.each do |prtd| %>
+          <p>
+          <%= prtd.description %>
+          </p>
+            <% if prtd.id %>
+              <%= link_to "Delete", prtd, "data-turbo-method": :delete, class: "btn btn-danger" %>
+            <% end %>
+          <% end %>
+        </div>
+
+    </div>    
+  </div>       
+</div> 
+<style>
+h1{
+  margin-top:100px;
+  text-align: center;
+}
+.form-control{
+width: 400px;
+}
+</style>
+
+
+

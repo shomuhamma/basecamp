@@ -1,0 +1,80 @@
+ <html>
+    <head>
+      <style>
+      html {
+              height: 100%;
+            }
+      body {
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background: linear-gradient(#141e30, #243b55);
+              }
+      .login-box {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 400px;
+              padding: 40px;
+              transform: translate(-50%, -50%);
+              background: rgba(0,0,0,.5);
+              box-sizing: border-box;
+              box-shadow: 0 15px 25px rgba(0,0,0,.6);
+              border-radius: 10px;
+
+              }
+     #projects{
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  padding:5px 10px; 
+   box-shadow: 10px 10px 5px lightblue;
+          border-radius: 10px;
+ }          
+     </style>
+    </head>
+      <body>
+      <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div class="container">
+                <div class="row">
+          <div class="col-8 "><p class="text-warning"><%= current_user.email %></p></div>
+          <div class="col-4"></div>
+                </div>
+                <div>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      
+                      <p class="mx-5"><%= link_to "New project", new_project_path, class: "btn btn-success" %></p>
+                      <p><%= link_to "Log out", destroy_user_session_path,method: :delete, class: "btn btn-danger" %></p>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <div class="row justify-content-md-center"> 
+              <div class="col-md-auto">
+                  
+
+
+                  <h1 class="text-warning">Projects</h1>          
+              </div>    
+            </div>
+        </header>
+           <div id="projects" class="">
+                    <% @projects.each do |project| %>
+            <div class="container">
+
+                      <%= render project %>
+                      
+                      <p>
+                        <%= link_to "Show this project", project, class: "btn btn-primary" %>
+                      </p>
+          </div>
+           
+                    <% end %>
+        </div>
+        <br>          
+      </div>
+    </body>  
+</html>
+
